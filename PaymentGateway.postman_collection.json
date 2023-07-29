@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "134d9c00-924d-4793-b84a-19682a96a45d",
+		"name": "PaymentGateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5565880"
+	},
+	"item": [
+		{
+			"name": "PaymentGateway",
+			"item": [
+				{
+					"name": "Request a payment with Authorised status - http://localhost:8000/payments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"merchantId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"cardSource\": {\n    \"name\": \"Happy Shopper\",\n    \"number\": \"1234123412347777\",\n    \"cvv\": \"123\",\n    \"expiryMonth\": 10,\n    \"expiryYear\": 2220\n  },\n  \"currency\": \"USD\",\n  \"amount\": 100,\n  \"paymentType\": \"Regular\",\n  \"reference\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request a payment with invalid request - http://localhost:8000/payments Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"merchantId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"cardSource\": {\n    \"name\": \"Happy Shopper\",\n    \"number\": \"1234123412347777\",\n    \"cvv\": \"invalid CVV\",\n    \"expiryMonth\": 10,\n    \"expiryYear\": 2220\n  },\n  \"currency\": \"USD\",\n  \"amount\": 100,\n  \"paymentType\": \"Regular\",\n  \"reference\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request a payment with Declined status - http://localhost:8000/payments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"merchantId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"cardSource\": {\n    \"name\": \"Happy Shopper\",\n    \"number\": \"1234123412347777\",\n    \"cvv\": \"123\",\n    \"expiryMonth\": 10,\n    \"expiryYear\": 2220\n  },\n  \"currency\": \"USD\",\n  \"amount\": 7777,\n  \"paymentType\": \"Regular\",\n  \"reference\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a payment - http://localhost:8000/payments/{paymentId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/payments/b0787f37-60f5-4063-a242-95b56770e4d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"payments",
+								"b0787f37-60f5-4063-a242-95b56770e4d3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a not exist payment - http://localhost:8000/payments/b0787f37-60f5-4063-a242-95b56770e4d3 Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/payments/b0787f37-60f5-4063-a242-95b56770e4d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"payments",
+								"b0787f37-60f5-4063-a242-95b56770e4d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
